@@ -1,8 +1,4 @@
-import random
-
-st = ""
-for x in range(64):
-    st = st + str(random.randint(0, 1))+", "
-    if x % 8 == 0:
-        st = st + "\n"
-print(st)
+a = [1,2,3]
+b = [4,5,6]
+a.append(b)
+print(a)

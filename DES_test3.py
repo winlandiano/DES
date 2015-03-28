@@ -1,9 +1,9 @@
+from __future__ import division
+
 # This program is written by Uday Sagar Shiramshetty, studying 3rd year CSE, at MANIT-Bhopal
 # It is written according to the python 3 syntax. Just run this program and follow the instructions
 # for encryption and decryption
 #Any comments may be addressed to udaysagar.2177@gmail.com
-
-import struct
 
 s = [  # S1
        [14, 4, 13, 1, 2, 15, 11, 8, 3, 10, 6, 12, 5, 9, 0, 7,
@@ -122,7 +122,7 @@ bin_to_text = {}
 
 
 def precompute():
-    global to_binary, bin_to_text, cipher
+    global to_binary, bin_to_text, cipher, plaintext_space
 
     # for calculation of 8-bit list for every character
     for n in range(256):
@@ -143,12 +143,15 @@ def precompute():
         bin_to_text[string] = chr(k)
         k += 1
 
+    cipher = []
+    plaintext_space = []
     for i in range(256):
         cipher.append("")
-        plaintext_space.append('')
+        plaintext_space.append("")
+        n = i
         for j in range(8):
-            plaintext_space[i] += str(i % 2)
-            i //= 2
+            plaintext_space[i] += str(n % 2)
+            n //= 2
     return
 
 
@@ -341,7 +344,7 @@ def apply_pads():
 #main function
 
 def main():
-    global text_bits, key, to_binary, bin_to_text, to_hex, to_dec, dec_to_bin
+    global text_bits, key, to_binary, bin_to_text, to_hex, to_dec, dec_to_bin, plaintext_space
     precompute()
 
     print('Enter the key')
@@ -358,11 +361,17 @@ def main():
         for i in range(0, len(text_bits), 64):
             cipher[j] += DES(i, (i + 64))
 
-    for each in cipher:
-        print(each)
-        print()
+    rate = []
+    for i in range(len(cipher[0])):
+        count = 0
+        for each in cipher:
+            if each[i] == '0':
+                count += 1
+        rate.append(count / len(cipher) * 100)
 
-    print()
+    for i in range(len(rate)):
+        print(str(i)+" th bit: "+str(rate[i]))
+
     print('exiting...')
     return
 
