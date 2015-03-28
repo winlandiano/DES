@@ -352,8 +352,8 @@ def main():
     precompute()
 
     print('Enter the choice')
-    print('1. ENCRYPT A MESSAGE')
-    print('2. DECRYPT A MESSAGE')
+    print('1. ENCRYPT AN IMAGE')
+    print('2. DECRYPT AN IMAGE')
     choice = int(input())
 
     print('Enter the key')

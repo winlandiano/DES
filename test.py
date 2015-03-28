@@ -1,4 +1,6 @@
-a = [1,2,3]
-b = [4,5,6]
-a.append(b)
-print(a)
+import DES_test4
+
+# 000111
+# 01
+# 0011
+print(DES_test4.get_s_box_by_index(7))
