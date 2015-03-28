@@ -387,8 +387,11 @@ def main():
     print()
     for i in range(16):
         count = 0
-        for j in range(len(cipher1)):
-            if not cipher2[i][j] == cipher1[i][j]:
+        for j in range(len(cipher1[0])):
+            if j==7 or j==37 or j==45:
+                j +=1
+                j -=1
+            if cipher2[i][j] == cipher1[i][j]:
                 count += 1
         print("After "+str(i)+" round differnt bits is: "+str(count))
 
