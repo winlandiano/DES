@@ -1,6 +1,6 @@
 # DES
 ###感谢[udaysagar2177](https://github.com/udaysagar2177/DES)对DES加密算法的优雅编写
-
+此仓库为HIT密码学DES编程作业
 ###变更：
 
 + Added Image Encrypting/Decryptiong 添加图像加密解密
